@@ -1,13 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
     <header>
-        
+    
+        <nav class=" mt-2 bg-gradient-to-r from-[#f8f5f5] from via-[#ebe4e4] to-[#f5efef]">
+            <div class="w-11/12 mx-auto flex justify-between py-3">
+                <div class="flex justify-center items-center gap-2">
+                  <h2 class="text-2xl font-bold">English</h2>
+                  <img src="assets/logo.png" alt="">
+                  <h4 class="text-xl">জানালা</h4>
+                </div>
+                <div class=" flex justify-center items-center gap-2">
+                   <button class="btn btn-sm border-[#422AD5]">
+                     <img src="assets/fa-circle-question.png" alt=""> FAQ
+                   </button>
+                   <button class="btn btn-sm border-[#422AD5]">
+                    <img src="assets/fa-book-open.png" alt=""> learn
+                   </button>
+                   <button class="btn btn-sm border-[#422AD5]">
+                     <img src="assets/fa-arrow-right-from-bracket.png" alt="">  Logout 
+                   </button>
+                </div>
+              </div>
+        </nav>
+
     </header>
+
+    <section class="bg-[#eef0f7]">
+     <div class="w-11/12 mx-auto flex justify-center items-center">
+
+      <div>
+      <!--  -->
+       <h2 class="text-3xl font-semibold text-[#00BCFF]
+       py-3">English <span class="text-black">is Easy!!</span></h2>
+       <p class="text-base text-[#18181B] pb-3">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু
+         করুন। আপনি যদি নতুন হন অথবা <br> আপনার দক্ষতা বাড়াতে চান, 
+        আমাদের Interactive Lessons আপনাকে নিয়ে <br> যাবে অন্য 
+        একটি Level এ</p>
+       
+        <input class="mb-2" placeholder="Enter your name" type="text">
+        <br>
+        <input placeholder="password" type="password">
+        <br>
+        <button class="btn bg-[#422AD5] text-white mt-2">Get Started</button>
+       
+      </div>
+
+      <div>
+        <!--  -->
+        <img src="assets/hero-student.png" alt="">
+      </div>
+
+     </div>
+    </section>
+
+
+    <script src="script/index.js"></script>
 </body>
+
 </html>
