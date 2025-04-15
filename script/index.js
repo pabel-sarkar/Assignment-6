@@ -89,9 +89,55 @@ const loadCategoryId = (id) => {
 };
 
 
+// {
+//     "status": true,
+//     "message": "successfully fetched a word details",
+//     "data": {
+//         "word": "Cautious",
+//         "meaning": "সতর্ক",
+//         "pronunciation": "কশাস",
+//         "level": 2,
+//         "sentence": "Be cautious while crossing the road.",
+//         "points": 2,
+//         "partsOfSpeech": "adjective",
+//         "synonyms": [
+//             "careful",
+//             "alert",
+//             "watchful"
+//         ],
+//         "id": 3
+//     }
+// }
+
+
 const loadDetails = (loadId) => {
-    const url = `https://openapi.programming-hero.com/api/word/5`
-fetch('')
+    const url = `https://openapi.programming-hero.com/api/word/${loadId}`
+fetch(url)
+.then(res=>res.json())
+.then(data=>displayDetail(data.data))
+}
+
+const displayDetail=(load)=>{
+console.log(load)
+document.getElementById("card_details").showModal();
+const detailContainer = document.getElementById("details-container")
+detailContainer.innerHTML=`
+<h2 class="text-2xl font-bold py-3">${load.word}</h2>
+<div class="py-2">
+  <p class="font-semibold">Meaning</p>
+  <p class="text-sm text-gray-600">${load.meaning}</p>
+</div>
+<div class="py-2">
+  <p class="font-semibold">Example</p>
+  <p class="text-sm text-gray-600">${load.sentence}</p>
+</div>
+<div class="py-3">
+  <p>সমার্থক শব্দ গুলো</p>
+  <button class="btn">${load.partsOfSpeech}</button>
+</div>
+
+
+`;
 }
 
 
