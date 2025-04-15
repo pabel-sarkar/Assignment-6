@@ -1,8 +1,20 @@
 
-document.getElementById('faq-btn').addEventListener('click',()=>{
+
+function removeActiveClass() {
+    const activeButton = document.getElementsByClassName("active")
+
+    for (let btn of activeButton) {
+        btn.classList.remove("active");
+    }
+}
+
+
+document.getElementById('faq-btn').addEventListener('click', () => {
     const callSection = document.getElementById('frequently');
-    callSection.scrollIntoView({behavior: "smooth"})
+    callSection.scrollIntoView({ behavior: "smooth" })
 })
+
+
 
 // [
 //     {
@@ -46,23 +58,114 @@ document.getElementById('faq-btn').addEventListener('click',()=>{
 
 // load api 1 data
 
-function loadCategoryBtn () {
+function loadCategoryBtn() {
     fetch('https://openapi.programming-hero.com/api/levels/all')
-   .then((res)=>res.json())
-   .then(data=>displayCategory(data.data))
+        .then((res) => res.json())
+        .then(data => loadCategory(data.data))
+}
+// loadCategoryBtn()
+
+// loadCategoryBtn()
+
+
+function specificLessonButton() {
+    fetch('https://openapi.programming-hero.com/api/level/5')
+        .then((res) => res.json())
+        .then(data => displayLesson(data.data))
 }
 
-function displayCategory (categories){
-const categoriesContainer = document.getElementById('btn-container');
-for(let cat of categories){
-    const div = document.createElement('div');
-    div.innerHTML=`
-     <button class="btn hover:bg-[#422AD5] hover:text-white"><img 
+
+const loadCategoryId = (id) => {
+    const url = `https://openapi.programming-hero.com/api/level/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            removeActiveClass();
+            const clickButton = document.getElementById(`btn-${id}`);
+            clickButton.classList.add("active")
+            displayLesson(data.data);
+        })
+        .catch(err => console.error("Error loading category:", err));
+};
+
+
+const loadDetails = (loadId) => {
+    const url = `https://openapi.programming-hero.com/api/word/5`
+fetch('')
+}
+
+
+function loadCategory(categories) {
+    const categoriesContainer = document.getElementById('btn-container');
+    for (let cat of categories) {
+        const div = document.createElement('div');
+        div.innerHTML = `
+     <button id="btn-${cat.level_no}" onclick="loadCategoryId(${cat.level_no})" class="btn hover:bg-[#422AD5] hover:text-white"><img 
      class="w-5 h-5 hover:bg-white" src="assets/fa-book-open.png" alt="">Lesson-
      ${cat.level_no}</button>
     `;
-    categoriesContainer.appendChild(div);
+        categoriesContainer.appendChild(div);
+    }
 }
+
+
+
+// {
+//     "id": 147,
+//     "level": 5,
+//     "word": "Recalcitrant",
+//     "meaning": "অধিকারী নয় এমন",
+//     "pronunciation": "রিক্যালসিট্রান্ট"
+// }
+
+
+function displayLesson(card) {
+    const cardContainer = document.getElementById('lesson-container');
+
+    // cardContainer.innerHTML = "";
+
+    if (card.length === 0) {
+
+        cardContainer.innerHTML = `
+         <div class="col-span-full ">
+              <div class="py-6 mx-auto rounded-sm ">
+                <div class="flex justify-center">
+                  <img src="assets/alert-error.png" alt="">
+                </div>
+                <p class="text-center">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h2 class="text-xl font-semibold text-center">নেক্সট Lesson এ যান</h2>
+               </div>
+            </div>
+         `;
+        return;
+    }
+
+
+    for (let cards of card) {
+        const buttonCard = document.createElement("div");
+        buttonCard.innerHTML = `
+        <div class="flex justify-center items-center">
+        <div class="bg-white m-2 p-2 w-[540px]">
+            <div>
+                <h3 class="text-2xl font-bold py-2">${cards.word}</h3>
+                <p class="font-medium py-2">${cards.meaning}</p>
+                <h2 class="text-2xl font-bold py-2">${cards.pronunciation}</h2>
+            </div>
+            <div class="flex justify-between">
+                <button onclick="loadDetails(${cards.id})" class="btn"><i class="fa-solid fa-exclamation"></i>
+                </button>
+                <button class="btn"><i class="fa-solid fa-music pr-5"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+        `
+        cardContainer.appendChild(buttonCard);
+    }
 }
 
 loadCategoryBtn()
+// specificLessonButton()
+
+
+
