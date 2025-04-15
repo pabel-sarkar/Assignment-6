@@ -1,5 +1,30 @@
 
 
+
+document.getElementById("start-btn").addEventListener('click',function (e){
+e.preventDefault()
+const inputValue = document.getElementById('input-1').value;
+if(inputValue==="123456"){
+    document.getElementById("btn-start-section").style.display="none";
+    document.getElementById("vocabularis").style.display="block";
+    document.getElementById("frequently").style.display="block";
+    document.getElementById("nave-title").style.display="block";
+
+    swal.fire({
+        icon:'success',
+        title:'success',
+        title:'correct input value'
+    })
+}
+else{
+    alert("Pin number Invalid")
+}
+})
+    
+
+
+
+
 function removeActiveClass() {
     const activeButton = document.getElementsByClassName("active")
 
@@ -9,9 +34,16 @@ function removeActiveClass() {
 }
 
 
+
 document.getElementById('faq-btn').addEventListener('click', () => {
     const callSection = document.getElementById('frequently');
     callSection.scrollIntoView({ behavior: "smooth" })
+   
+})
+document.getElementById('learn').addEventListener('click', () => {
+    const callSection = document.getElementById('vocabularis');
+    callSection.scrollIntoView({ behavior: "smooth" })
+    
 })
 
 
@@ -191,7 +223,7 @@ function displayLesson(card) {
         const buttonCard = document.createElement("div");
         buttonCard.innerHTML = `
         <div class="flex justify-center items-center">
-        <div class="bg-white m-2 p-2 w-[540px]">
+        <div class="bg-white m-2 p-2 w-[540px] h-[300px]">
             <div>
                 <h3 class="text-2xl font-bold py-2 text-center">${cards.word}</h3>
                 <p class=" font-medium py-2 text-center">Meaning /Pronounciation</p>
@@ -200,7 +232,7 @@ function displayLesson(card) {
             <div class="flex justify-between">
                 <button onclick="loadDetails(${cards.id})" class="btn"><i class="fa-solid fa-exclamation"></i>
                 </button>
-                <button class="btn"><i class="fa-solid fa-music pr-5"></i>
+                <button onclick="pronounceWord()" class="btn"><i class="fa-solid fa-music pr-5"></i>
                 </button>
             </div>
         </div>

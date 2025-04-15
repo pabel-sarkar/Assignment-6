@@ -10,7 +10,6 @@
 
     <script src="https://kit.fontawesome.com/a09fce2fc3.js" crossorigin="anonymous"></script>
 
-
     <style>
       .active{
         background-color:#422AD5 ;
@@ -20,7 +19,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="nave-title" class="hidden">
     
         <nav class=" mt-2 bg-gradient-to-r from-[#f8f5f5] from via-[#ebe4e4] to-[#f5efef]">
             <div class="w-11/12 mx-auto flex justify-between py-3">
@@ -33,8 +32,8 @@
                    <button id="faq-btn" class="btn btn-sm border-[#422AD5]">
                      <img src="assets/fa-circle-question.png" alt=""> FAQ
                    </button>
-                   <button class="btn btn-sm border-[#422AD5]">
-                    <img src="assets/fa-book-open.png" alt=""> learn
+                   <button id="learn" class="btn btn-sm border-[#422AD5]">
+                    <img src="assets/fa-book-open.png" alt=""> Learn
                    </button>
                    <button class="btn btn-sm border-[#422AD5]">
                      <img src="assets/fa-arrow-right-from-bracket.png" alt="">  Logout 
@@ -45,10 +44,10 @@
 
     </header>
 
-    <section class="bg-[#eef0f7]">
+    <section id="btn-start-section" class="bg-[#eef0f7]">
      <div class="w-11/12 mx-auto flex justify-center items-center">
 
-      <div>
+      <div id="">
       <!--  -->
        <h2 class="text-3xl font-semibold text-[#00BCFF]
        py-3">English <span class="text-black">is Easy!!</span></h2>
@@ -59,9 +58,9 @@
        
         <input class="mb-2" placeholder="Enter your name" type="text">
         <br>
-        <input placeholder="password" type="password">
+        <input id="input-1" placeholder="password" type="password">
         <br>
-        <button class="btn bg-[#422AD5] text-white mt-2">Get Started</button>
+        <button id="start-btn" class="btn bg-[#422AD5] text-white mt-2">Get Started</button>
        
       </div>
 
@@ -75,7 +74,7 @@
 
 
 
-    <section>
+    <section id="vocabularis" class="my-14 hidden">
       <h2 class="text-3xl font-semibold 
       text-center mt-7"><span class="text-[#00BCFF]">
         Let's</span> Learn Vocabularies</h2>
@@ -85,13 +84,13 @@
 
       <div class="w-11/12 mx-auto bg-slate-100 ">
         <div id="lesson-container" class="grid grid-cols-3 ">
-        </div>
-        <div class=" bg-white col-span-ful">
-          <div>
-              <p class="text-center text-2xl font-bold">আপনি এখনো কোন Lesson Select করেন নি </p>
-              <h2 class="text-center text-lg font-semibold">একটি Lesson Select করুন।</h2>
+
+          <div class=" bg-white col-span-full">
+                <p class="text-center text-2xl font-bold">আপনি এখনো কোন Lesson Select করেন নি </p>
+                <h2 class="text-center text-lg font-semibold">একটি Lesson Select করুন।</h2>
+
             </div>
-          </div>
+        </div>
       </div>
       
      <!-- Open the modal using ID.showModal() method -->
@@ -113,7 +112,7 @@
     </section>
 
 
-   <section id=" " class="w-11/12 mx-auto mt-20">
+   <section id="frequently" class="w-11/12 mx-auto mt-20 hidden">
     <h2 class="text-3xl font-semibold text-center mt-7"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h2>
      
      <div>
@@ -147,7 +146,31 @@
    </section>
      
 
+<footer class="w-11/12 mx-auto">
+<div class="flex justify-between items-center py-5 mt-10">
 
+<div>
+  <div class="flex gap-2 py-2">
+    <h2 class="text-2xl font-bold">English</h2>
+    <img src="assets/logo.png" alt="">
+    <h4 class="text-xl">জানালা</h4>
+  </div>
+  <h3 class="text-lg font-semibold pb-4">ইংরেজি শিখুন সহজে</h3>
+  <p class="">Providing ED-Tech Applications since 2025</p>
+</div>
+
+<div>
+ <p class="text-gray-500 py-4">Follow us</p>
+ <div class="flex gap-3">
+  <img src="assets/fb-thumb.png" alt="">
+  <img src="assets/youtube-thumb.png" alt="">
+  <img src="assets/instagram-thumb.png" alt="">
+ </div>
+</div>
+
+
+</div>
+</footer>
 
 
    
