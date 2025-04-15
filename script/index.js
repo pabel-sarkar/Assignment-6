@@ -168,9 +168,9 @@ function loadCategory(categories) {
 function displayLesson(card) {
     const cardContainer = document.getElementById('lesson-container');
 
-    // cardContainer.innerHTML = "";
+     cardContainer.innerHTML = "";
 
-    if (card.length === 0) {
+    if (card.length == 0) {
 
         cardContainer.innerHTML = `
          <div class="col-span-full ">
@@ -193,9 +193,9 @@ function displayLesson(card) {
         <div class="flex justify-center items-center">
         <div class="bg-white m-2 p-2 w-[540px]">
             <div>
-                <h3 class="text-2xl font-bold py-2">${cards.word}</h3>
-                <p class="font-medium py-2">${cards.meaning}</p>
-                <h2 class="text-2xl font-bold py-2">${cards.pronunciation}</h2>
+                <h3 class="text-2xl font-bold py-2 text-center">${cards.word}</h3>
+                <p class=" font-medium py-2 text-center">Meaning /Pronounciation</p>
+                <h2 class="text-center text-2xl font-bold py-2">${cards.meaning} / ${cards.pronunciation}</h2>
             </div>
             <div class="flex justify-between">
                 <button onclick="loadDetails(${cards.id})" class="btn"><i class="fa-solid fa-exclamation"></i>
